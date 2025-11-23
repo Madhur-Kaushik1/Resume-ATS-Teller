@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Score Result</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .card-custom {
+            width: 90%;
+            max-width: 500px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: conic-gradient(#1cc88a {{ ans }}%, #d1d1d1 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .score-circle h1 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .btn-custom {
+            background-color: #4e73df;
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .btn-custom:hover {
+            background-color: #2e59d9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-custom text-center">
+
+        <h2 class="fw-bold mb-3 text-primary">Your ATS Score</h2>
+        <div class="score-circle">
+            <h1>{{ ans|floatformat:0 }}%</h1>
+        </div>
+
+        <div class="progress" style="height: 15px;">
+            <div class="progress-bar bg-success" role="progressbar" 
+                style="width: {{ ans }}%;" 
+                aria-valuenow="{{ ans }}" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+
+        <p class="mt-3 text-muted">
+            A score above <b>70%</b> is considered good for most ATS systems.
+        </p>
+
+        <a href="/" class="btn btn-custom mt-3 w-100">Upload Another Resume</a>
+    </div>
+
+</body>
+</html>

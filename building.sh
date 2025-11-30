@@ -1,9 +1,9 @@
 set -o errexit
 
-pip intall -r requirements.txt
+pip install --upgrade pip
 
-python manage.py collectstatic --no-input
+pip install -r requirements.txt
+
+python manage.py collectstatic --noinput
 
 python manage.py migrate
-
-pip install --upgrade pip

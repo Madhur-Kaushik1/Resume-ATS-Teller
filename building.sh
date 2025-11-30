@@ -5,3 +5,5 @@ pip intall -r requirements.txt
 python manage.py collectstatic --no-input
 
 python manage.py migrate
+
+pip install --upgrade pip
